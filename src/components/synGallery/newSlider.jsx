@@ -49,7 +49,7 @@ export const NewSlider = (props) => {
 
   return (
     <>
-      <div className="mainDiv">
+      <div data-testid="slidediv" className="mainDiv">
         <Slide
           zoomIn={() => zoomIn()}
           isShowImage={isShowImage}
@@ -57,10 +57,10 @@ export const NewSlider = (props) => {
         />
       </div>
       <div style={{ textAlign: "center" }}>
-        <a href className="prev" onClick={prev}>
+        <a  className="prev" data-testid="prevbutton" onClick={prev}>
           &#10094;
         </a>
-        <a href className="next" onClick={next}>
+        <a  className="next" data-testid="nextbutton" onClick={next}>
           &#10095;
         </a>
       </div>

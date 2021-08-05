@@ -14,6 +14,7 @@ export const Slide = (props) => {
           </video>
         ) : (
           <img
+            data-testid='imageid'
             onClick={zoomIn}
             height={350}
             width={"100%"}
@@ -25,6 +26,7 @@ export const Slide = (props) => {
       </div>
       {isShowImage && (
         <div
+          data-testid='zoominimage'
           onClick={zoomIn}
           style={{
             background:
