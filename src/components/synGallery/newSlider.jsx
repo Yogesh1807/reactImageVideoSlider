@@ -9,14 +9,21 @@ export const NewSlider = (props) => {
   const { media = [], autoPlay = false, autoDelay = 3000, range = 1 } = props;
   const [activeSlides, setActiveSlides] = useState([]);
   const [isShowImage, setIsShowImage] = useState(false);
+  const [zoomInImage, setZoomInImage] = useState("");
   const [currentFirstSlide, setCurrentFirstSlide] = useState(0);
-  const [currentLastSlide, setCurrentLastSlide] = useState(0);
+  const [currentLastSlide, setCurrentLastSlide] = useState(range);
 
   useEffect(() => {
     setCurrentFirstSlide(0);
     setCurrentLastSlide(range);
     setActiveSlides(media.slice(0, range));
-    console.log("nextArr", media.slice(0, range), autoPlay);
+    if (autoPlay) {
+      let interval = setInterval(() => {
+        next();
+      }, autoDelay);
+      return () => clearInterval(interval);
+    }
+    console.log("default", media.slice(0, range), autoPlay);
   }, []);
 
   const next = () => {
@@ -36,9 +43,17 @@ export const NewSlider = (props) => {
       slides = media.slice(temp1, temp2);
     }
 
-    setCurrentFirstSlide(temp1); // 3-
-    setCurrentLastSlide(temp2); // 6-
-    setActiveSlides(slides);
+    setCurrentFirstSlide(() => {
+      return temp1;
+    }); // 3-
+    setCurrentLastSlide(() => {
+      return temp2;
+    }); // 6-
+    // setActiveSlides(slides);
+
+    setActiveSlides(() => {
+      return slides;
+    });
   };
 
   const prev = () => {
@@ -48,7 +63,7 @@ export const NewSlider = (props) => {
     let temp2 = currentLastSlide - range; // -6
 
     if (temp2 < 0) {
-      temp2 = temp2 + length; // 3 just make it positive
+      temp2 = temp2 + length; // 3
     }
     if (temp1 < 0) {
       temp1 = temp1 + length;
@@ -63,29 +78,33 @@ export const NewSlider = (props) => {
     setActiveSlides(slides);
   };
 
-  useEffect(() => {
-    if (autoPlay) {
-      let interval = setInterval(() => {
-        next();
-      }, autoDelay);
-      return () => clearInterval(interval);
-    }
-  }, [autoPlay]);
+  // useEffect(() => {
+  //   if (autoPlay) {
+  //     let interval = setInterval(() => {
+  //       next();
+  //     }, autoDelay);
+  //     return () => clearInterval(interval);
+  //   }
+  // }, [autoPlay]);
 
-  const zoomIn = () => {
+  const zoomIn = (val) => {
+    console.log("current slide", val);
+    setZoomInImage(val.src);
     setIsShowImage(!isShowImage);
   };
 
-  console.log("lin 53", props, isShowImage, activeSlides);
+  console.log("53=>", props, isShowImage, activeSlides);
 
   return (
     <>
       <MainDiv data-testid="slidediv" slides={range}>
         {activeSlides.map((slide) => (
           <Slide
-            zoomIn={() => zoomIn()}
+            zoomIn={(val) => zoomIn(val)}
             isShowImage={isShowImage}
+            zoomInImage={zoomInImage}
             slide={slide}
+            key={slide.id}
           />
         ))}
       </MainDiv>

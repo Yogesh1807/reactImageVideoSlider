@@ -2,9 +2,8 @@
 import React from "react";
 
 export const Slide = (props) => {
-  const { slide, isShowImage, zoomIn } = props;
+  const { slide, isShowImage, zoomInImage, zoomIn } = props;
 
-  console.log("Slide props", props);
   return (
     <>
       {Object.keys(slide).length > 0 ? (
@@ -16,7 +15,7 @@ export const Slide = (props) => {
           ) : (
             <img
               data-testid="imageid"
-              onClick={zoomIn}
+              onClick={() => zoomIn(slide)}
               height={350}
               width={"100%"}
               alt={slide.id}
@@ -34,7 +33,7 @@ export const Slide = (props) => {
           onClick={zoomIn}
           style={{
             background:
-              "RGBA(0,0,0,.5) url(" + slide.src + ") no-repeat center",
+              "RGBA(0,0,0,.5) url(" + zoomInImage + ") no-repeat center",
             backgroundSize: "contain",
             width: "100%",
             height: "100%",
