@@ -12,7 +12,7 @@ h2 {
 }
 
 /****New Slider***/
-.mainDiv {
+/* .mainDiv {
   background-color: #0e1318;
   width: 650px;
   height: 400px;
@@ -28,7 +28,7 @@ h2 {
 
   margin: 0 auto;
   border-radius: 10px;
-}
+} */
 
 .prev,
 .next {
@@ -74,9 +74,10 @@ img:hover {
 .noData {
   color: white;
   text-align: center;
-  font-size: 70px;
+  font-size: 3vw;
   font-weight: bold;
-  margin: 130px 0;
+  margin: 130px auto;
+  width: 100%;
 }
 
 @keyframes fade {
@@ -86,5 +87,34 @@ img:hover {
 
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .next {
+    right: 30.9%;
+    top: 60%;
+    border-radius: 3px 0 0 3px;
+    transform: rotate(90deg);
+  }
+
+  .prev {
+    left: 55.9%;
+    top: 0%;
+    border-radius: 3px 0 0 3px;
+    transform: rotate(90deg);
+  }
+  @media screen and (max-width: 660px) {
+    .next {
+      right: 0%;
+      top: 50%;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev {
+      left: 0%;
+      top: 50%;
+      border-radius: 3px 0 0 3px;
+    }
   }
 }
