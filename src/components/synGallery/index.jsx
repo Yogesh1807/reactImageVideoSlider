@@ -46,8 +46,15 @@ const slides = [
     isVideo: false,
     src: "https://i.picsum.photos/id/243/536/354.jpg?hmac=LfqhpnBszg-pS8BQHemVFexSLyoiFYP8Pw14oAiPpE4",
   },
+  // {
+  //   id: 9,
+  //   isVideo: false,
+  //   src: "https://i.picsum.photos/id/243/536/354.jpg?hmac=LfqhpnBszg-pS8BQHemVFexSLyoiFYP8Pw14oAiPpE4",
+  // },
 ];
 
 export const SynGallery = () => {
-  return <NewSlider autoDelay={3000} autoPlay={false} media={slides} />;
+  return (
+    <NewSlider autoDelay={3000} autoPlay={false} media={slides} range={3} />
+  );
 };

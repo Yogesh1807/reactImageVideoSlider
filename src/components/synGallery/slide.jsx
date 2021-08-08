@@ -7,26 +7,30 @@ export const Slide = (props) => {
   console.log("Slide props", props);
   return (
     <>
-      <div className="fade" key={slide.id}>
-        {slide.isVideo ? (
-          <video height={350} width={"100%"} controls>
-            <source src={slide.src} type="video/mp4" />
-          </video>
-        ) : (
-          <img
-            data-testid='imageid'
-            onClick={zoomIn}
-            height={350}
-            width={"100%"}
-            alt={slide.id}
-            src={slide.src}
-          />
-        )}
-        <h3>{slide.id}</h3>
-      </div>
+      {Object.keys(slide).length > 0 ? (
+        <div className="fade" key={slide.id}>
+          {slide.isVideo ? (
+            <video height={350} width={"100%"} controls>
+              <source src={slide.src} type="video/mp4" />
+            </video>
+          ) : (
+            <img
+              data-testid="imageid"
+              onClick={zoomIn}
+              height={350}
+              width={"100%"}
+              alt={slide.id}
+              src={slide.src}
+            />
+          )}
+          <h3 style={{ color: "white" }}>{slide.id}</h3>
+        </div>
+      ) : (
+        <div className="noData">No data</div>
+      )}
       {isShowImage && (
         <div
-          data-testid='zoominimage'
+          data-testid="zoominView"
           onClick={zoomIn}
           style={{
             background:
