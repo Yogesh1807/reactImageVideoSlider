@@ -76,7 +76,7 @@ export const NewSlider = (props) => {
   return (
     <>
       {Object.keys(currentAllState).length > 0 && (
-        <MainDiv data-testid="slidediv" slides={range}>
+        <MainDiv className="mainDiv" data-testid="slidediv" slides={range}>
           {activeSlides.map((slide) => (
             <Slide
               zoomIn={(val) => zoomIn(val)}
