@@ -42,19 +42,19 @@ const slides = [
     src: "https://images.unsplash.com/photo-1422568374078-27d3842ba676?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
   },
   {
-    // id: 8,
-    // isVideo: false,
-    // src: "https://i.picsum.photos/id/243/536/354.jpg?hmac=LfqhpnBszg-pS8BQHemVFexSLyoiFYP8Pw14oAiPpE4",
-  },
-  {
-    id: 9,
+    id: 8,
     isVideo: false,
     src: "https://i.picsum.photos/id/243/536/354.jpg?hmac=LfqhpnBszg-pS8BQHemVFexSLyoiFYP8Pw14oAiPpE4",
   },
+  // {
+  //   id: 9,
+  //   isVideo: false,
+  //   src: "https://i.picsum.photos/id/243/536/354.jpg?hmac=LfqhpnBszg-pS8BQHemVFexSLyoiFYP8Pw14oAiPpE4",
+  // },
 ];
 
 export const SynGallery = () => {
   return (
-    <NewSlider autoDelay={2000} autoPlay={false} media={slides} range={2} />
+    <NewSlider autoDelay={2000} autoPlay={false} media={slides} range={5} />
   );
 };
