@@ -2,6 +2,7 @@ import React from "react";
 
 export const Slide = (props) => {
   const { slide, isShowImage, zoomInImage, zoomIn } = props;
+
   return (
     <>
       <div className="fade" key={slide.id}>
@@ -21,7 +22,7 @@ export const Slide = (props) => {
                 src={slide.src}
               />
             )}
-            <h3 style={{ color: "white" }}>{slide.id}</h3>
+            <h3 style={{ textAlign: "center" }}>{slide.id}</h3>
           </>
         ) : (
           <div className="noData">No data</div>

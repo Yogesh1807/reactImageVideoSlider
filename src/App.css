@@ -4,12 +4,12 @@
   text-align: center;
 }
 
-h3,
+/* h3,
 h2 {
   color: white;
   margin: 0;
   padding: 10px;
-}
+} */
 
 /****New Slider***/
 /* .mainDiv {
@@ -30,7 +30,7 @@ h2 {
   border-radius: 10px;
 } */
 
-.prev,
+/* .prev,
 .next {
   cursor: pointer;
   position: absolute;
@@ -58,9 +58,9 @@ h2 {
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
-}
+} */
 
-.fade {
+/* .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
   animation-name: fade;
@@ -88,9 +88,9 @@ img:hover {
   to {
     opacity: 1;
   }
-}
+} */
 
-@media screen and (max-width: 460px) {
+/* @media screen and (max-width: 460px) {
   .next {
     right: 30.9%;
     top: 60%;
@@ -117,4 +117,4 @@ img:hover {
       border-radius: 3px 0 0 3px;
     }
   }
-}
+} */
